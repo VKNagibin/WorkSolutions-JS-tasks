@@ -39,3 +39,32 @@ while( +number_ < 100 && number_ !== null ) {
     alert("Попробуйте ещё раз");
     number_ = prompt("Введите число больше 100");
 }
+
+
+
+
+
+
+function simpleNumbers(n) {
+  let simpleNumbers;
+    
+  if (n >= 2) {
+    simpleNumbers = "2, ";
+  } else {
+    return 0;
+  }
+  
+  for (let i = 3; i <= n; i++) {
+    let noRemainder = 0; 
+    for (let j = 2; j < i; j++) {
+      if ( i % j === 0) {
+        noRemainder++;
+      }
+    }
+    simpleNumbers = noRemainder ? simpleNumbers : simpleNumbers + i + ", ";
+  }
+  return simpleNumbers.substr(0, simpleNumbers.length - 2) + ".";
+}
+
+
+console.log(simpleNumbers(1000));
