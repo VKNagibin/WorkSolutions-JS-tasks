@@ -39,15 +39,17 @@ function sumInput() {
 
     while (whileNumber) {
         let prompt_ = prompt("Введите число");
-        if ( isNumber(prompt_) ) {
-            arraySum.push(prompt_);
+
+        if ( prompt_ !== null && prompt_.trim() !== '' && isNumber(prompt_) ) {
+            arraySum.push(+prompt_);
         } else {
-            !whileNumber;
+            whileNumber = false;
         }
     }
 
-    arraySum.reduce()
-
+   return arraySum.reduce((sum, currentValue) => {
+       return sum + currentValue;
+       }, 0);
 }
 
 function isNumber(num) {
@@ -56,6 +58,11 @@ function isNumber(num) {
     }
     return false;
 }
+
+
+
+
+
 
 
 
