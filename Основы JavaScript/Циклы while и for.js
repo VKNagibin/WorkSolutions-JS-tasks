@@ -52,20 +52,55 @@ while( +number_ < 100 && number_ !== null ) {
 
 */
 
-function simpleNumbers(n) {
-  let simpleNumbers = "2, ";
+// function simpleNumbers(n) {
+//   let simpleNumbers = "2, ";
+//
+//   for (let i = 3; i <= n; i++) {
+//     let noRemainder = 0;
+//     for (let j = 2; j < i; j++) {
+//       if ( i % j === 0) {
+//         noRemainder++;
+//       }
+//     }
+//     simpleNumbers = noRemainder ? simpleNumbers : simpleNumbers + i + ", ";
+//   }
+//   return simpleNumbers.substring(0, simpleNumbers.length - 2) + ".";
+// }
 
-  for (let i = 3; i <= n; i++) {
-    let noRemainder = 0;
-    for (let j = 2; j < i; j++) {
-      if ( i % j === 0) {
-        noRemainder++;
-      }
+
+console.log(
+    simpleNumbers( prompt("Введите число больше 2") )
+);
+
+
+function simpleNumbers(n) {
+    let simpleNumbers = [2];
+
+    if ( !(isNumber(n) && n > 2) ) {
+        alert("Введено некорректное значение");
+        return;
     }
-    simpleNumbers = noRemainder ? simpleNumbers : simpleNumbers + i + ", ";
-  }
-  return simpleNumbers.substring(0, simpleNumbers.length - 2) + ".";
+
+    for (let i = 0; i <= n; i++) {
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                break;
+            }
+
+            j === i - 1 ?  simpleNumbers.push(i) : null;
+        }
+    }
+
+
+    return simpleNumbers.join(', ') + '.' ;
+}
+
+function isNumber(num) {
+    if (isFinite(-num) && num.trim() !== '') {
+        return true;
+    }
+    return false;
 }
 
 
-console.log(simpleNumbers(1000));
+
