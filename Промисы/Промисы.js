@@ -14,12 +14,9 @@ delay(3000).then(() => alert('выполнилось через 3 секунды
 */
 
 function delay(ms) {
-    let date = Date.now();
 
-    let promise = new Promise((resolve, reject) => {
-        if (Date.now() - date === ms) {
-            resolve();
-        }
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, ms);
     })
 }
 
