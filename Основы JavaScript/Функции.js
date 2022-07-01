@@ -20,17 +20,29 @@
 
  */
 
+
+//Вариант с  использованием ?
+
 let age = prompt( "Сколько тебе лет?");
 
 function checker(age) {
-    let checkAge = age > 18 ? true : confirm('Родители разрешили?');
-}
-
-function checkingAge(age) {
-    age > 18 || confirm('Родители разрешили?');
+    return age > 18 ? true : confirm('Родители разрешили?');
 }
 
 checker(age);
+
+
+
+//Вариант с использованием ||
+
+let age = prompt( "Сколько тебе лет?");
+
+
+function checkingAge(age) {
+   return age > 18 || confirm('Родители разрешили?');
+}
+
+
 checkingAge(age);
 
 /*
