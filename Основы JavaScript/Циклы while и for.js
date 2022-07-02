@@ -96,11 +96,11 @@ function simpleNumbers(n) {
 }
 
 function isNumber(num) {
-    if (isFinite(-num) && num.trim() !== '') {
+    if (isFinite(+num) && String(num).trim() !== '') {
         return true;
     }
     return false;
-}
-
+  }
+  
 
 

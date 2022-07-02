@@ -51,8 +51,23 @@ checkingAge(age);
     Напишите функцию pow(x,n), которая возвращает x в степени n. Иначе говоря, умножает x на себя n раз и возвращает результат.
 
  */
+    
+console.log(pow(3, "wrggfgaefgga"));
+console.log(pow(-153, 7));
+console.log(pow(0, 0));
+console.log(pow(5, -6));
+console.log(pow('', ''));
+console.log(pow(15, 8));
 
 function pow(x, n) {
+    if (
+      n < 1 ||
+      !isNumber(x) ||
+      !isNumber(n)
+       ) {
+      return
+    }
+
     if (n === 1) {
         return x;
     } else {
@@ -60,7 +75,9 @@ function pow(x, n) {
     }
 }
 
-console.log(pow(3, 3));
-
-
-
+function isNumber(num) {
+  if (isFinite(+num) && String(num).trim() !== '') {
+      return true;
+  }
+  return false;
+}
