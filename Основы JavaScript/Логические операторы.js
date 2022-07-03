@@ -4,12 +4,16 @@
 «Включительно» означает, что значение переменной age может быть равно 14 или 90.
  */
 
-let age = prompt("Сколько вам лет?");
+let ages = prompt("Сколько вам лет?");
 
-if ( age >= 14 && age <= 90) {
-    alert("Добро пожаловать");
+const isInRange = minAge => maxAge => ( age >= minAge && age <= maxAge ) ? true : false;
+
+const isValidAge = (age) => isInRange(14)(90)
+
+console.log(isValidAge(ages));
+if ( isValidAge(ages) ) {
+  alert("Functional Programming")  
 }
-
 
 /*
 Напишите условие if для проверки, что значение переменной age НЕ находится в диапазоне 14 и 90 включительно.
