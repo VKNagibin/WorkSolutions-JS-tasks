@@ -6,7 +6,7 @@
 
 (function () {
   const isValidAge = (age) => isInRange(14)(90);
-  const isInRange = minAge => maxAge => ( age >= minAge && age <= maxAge ) ? true : false;
+  const isInRange = minAge => maxAge => ( age >= minAge && age <= maxAge );
   const isNumber = num => {
     if (isFinite(+num) && String(num).trim() !== '') {
       return true;
