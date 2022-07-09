@@ -25,11 +25,12 @@ delete user.name;
  */
 
 function isEmpty(obj) {
-    let keys = 0;
+    let flag = true;
     for (let key in obj) {
-        keys++;
+        flag = false;
+        break;
     }
-    return !!keys;
+    return flag;
 }
 
 let schedule = {};
