@@ -59,17 +59,30 @@ alert( "Mul=" + calculator.mul() );
 
 */
 
-function Accumulator(startingValue = 0) {
-    this.value = startingValue;
-    this.read = () => {
-        this.value += +prompt("Введите число для сложения");
-    }
-}
-
 let accumulator = new Accumulator(600);
 
 accumulator.read();
 accumulator.read();
 
-alert(accumulator.value)
+alert(accumulator.value);
 
+function Accumulator(startingValue = 0) {
+    this.value = startingValue;
+    this.read = () => {
+        this.value += promptChecker( +prompt("Введите число для сложения") );
+    }
+}
+
+function promptChecker(message) {
+    if (isNumber(message)) {
+        return message
+    }
+    return 0;
+}
+
+function isNumber(num) {
+    if (isFinite(-num) && String(num).trim() !== '') {
+        return true;
+    }
+    return false;
+}
