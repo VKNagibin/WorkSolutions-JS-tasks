@@ -9,31 +9,16 @@
 */
 
 function readNumber() {
-    let typedValue = prompt("Введите число");
+    const v = read();
+    if (breakCondition(v)) return null;
+    const parsed = parse(v);
+    return isNaN(parsed) ? readNumber() : parsed;
 
-    if (typedValue === null || typedValue === '') {
-        alert("В другой раз");
-        return null;
-    }
-
-    if (isNumber(typedValue)) {
-        alert("спасибо!");
-        return Number(typedValue);
-    } else {
-        alert("Это не число");
-        readNumber();
-    }
 }
 
-function isNumber(num) {
-    if (isFinite(-num) && String(num).trim() !== '') {
-        return true;
-    }
-    return false;
-}
-
-readNumber();
-
+const breakCondition = (v) => v === "" || v === null;
+const parse = (v) => parseInt(v);
+const read = (m = "Введите число") => prompt(m);
 
 /*
 
