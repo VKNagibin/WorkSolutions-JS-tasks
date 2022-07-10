@@ -94,18 +94,26 @@ sumClean(salaries);
 
  */
 
-function multiplyNumeric(obj) {
-    for (let key in obj) {
-        if (typeof obj[key] === 'number') {
-            obj[key] = obj[key] * 2;
-        }
-    }
-}
+// function multiplyNumeric(obj) {
+//     for (let key in obj) {
+//         if (typeof obj[key] === 'number') {
+//             obj[key] = obj[key] * 2;
+//         }
+//     }
+// }
+
+const multiplyNumeric = (obj) => console.log(Object.entries(obj).filter(item => isNumber(item[1])).forEach(item => obj[item[0]] *= 2));
+
+const isNumber = (num) => !isNaN(num) && parseInt(num) && String(num).trim() !== ''
 
 let menu = {
     width: 2000,
     height: 3300,
-    title: "My menu"
+    title: "My menu",
+    weight: 500000,
+    h: 0,
+    gt: NaN,
+    space: "   ",
 };
 
 multiplyNumeric(menu);
