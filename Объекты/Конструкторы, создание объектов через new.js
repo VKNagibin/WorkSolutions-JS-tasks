@@ -21,12 +21,8 @@ function Calculator() {
         this.num1 = prompt("Введите первое число");
         this.num2 = prompt("Введите второе число");
     }
-    this.sum = () => {
-        return +this.num1 + +this.num2;
-    }
-    this.mul = () => {
-        return this.num1 * this.num2;
-    }
+    this.sum = () => +this.num1 + +this.num2;
+    this.mul = () => this.num1 * this.num2;
 }
 
 let calculator = new Calculator();
