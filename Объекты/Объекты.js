@@ -59,15 +59,11 @@ let salaries = {
     Pete: 130
 }
 
-function sum(obj) {
-    let total = 0;
-    for (let key in obj) {
-        total += obj[key];
-    }
-    return total;
-}
+const sumClean = (obj) => Object.values(obj).reduce((acc, val) => acc + val);
 
-sum(salaries);
+// 
+
+sumClean(salaries);
 
 
 /*
