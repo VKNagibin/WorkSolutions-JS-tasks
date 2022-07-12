@@ -94,7 +94,7 @@ sumClean(salaries);
 
  */
 
-const multiplyNumeric = (obj) => console.log(Object.entries(obj).filter(item => isNumber(item[1])).forEach(item => obj[item[0]] *= 2));
+const multiplyNumeric = (obj) => Object.entries(obj).filter(item => isNumber(item[1])).forEach(item => obj[item[0]] *= 2);
 
 const isNumber = (num) => !isNaN(num) && parseInt(num) && String(num).trim() !== ''
 
