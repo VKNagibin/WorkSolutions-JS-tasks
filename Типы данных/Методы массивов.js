@@ -52,19 +52,14 @@ function camelize(str) {
 
 */
 
+
+const filterRange = ((arr, minValue, maxValue) => arr.filter(item => item >= minValue && item <= maxValue));
+
 let arr = [5, 3, 8, 1, 9, 2, 2, 7, 16];
 
-filterRange(arr, 1, 4);
-
-function filterRange(arr, a, b) {
-    let filteredArray;
-
-    filteredArray = arr.filter(item => {
-        return item >= a && item <= b;
-    })
-
-    return filteredArray;
-}
+let filtered = filterRange(arr, 1, 4);
+alert( filtered ); 
+alert( arr );
 
 /*
 
