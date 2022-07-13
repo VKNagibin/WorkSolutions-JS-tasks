@@ -77,8 +77,5 @@ function promptChecker(message) {
 }
 
 function isNumber(num) {
-    if (isFinite(-num) && String(num).trim() !== '') {
-        return true;
-    }
-    return false;
+    return isFinite(-num) && String(num).trim() !== ''
 }
