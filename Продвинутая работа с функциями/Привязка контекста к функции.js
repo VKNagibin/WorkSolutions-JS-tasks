@@ -31,7 +31,6 @@ askPassword(user.loginOk, user.loginFail);
 
 */
 
-
 function askPassword(ok, fail) {
     let password = prompt("Password?", '');
     if (password == "rockstar") ok();
@@ -51,7 +50,4 @@ let user = {
 
 };
 
-let bindLoginOk = user.loginOk.bind(user);
-let bindLoginFail = user.loginFail.bind(user);
-
-askPassword(bindLoginOk, bindLoginFail);
+askPassword(user.loginOk.bind(user),user.loginFail.bind(user));
