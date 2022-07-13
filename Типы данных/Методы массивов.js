@@ -119,13 +119,9 @@ console.log(arr);
 
 let arr = ["HTML", "JavaScript", "CSS"];
 
+const copySorted = (array) => array.slice().sort();
+
 let sorted = copySorted(arr);
-
-function copySorted(array_) {
-    let newArray = [...array_];
-
-    return newArray.sort();
-}
 
 console.log(`sorted: ${sorted}` );
 console.log(`source array: ${arr}`)
