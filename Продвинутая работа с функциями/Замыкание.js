@@ -12,15 +12,9 @@
 
 */
 
+const sum = firstProp => secondProp => firstProp + secondProp;
 
 sum(100)(250);
-
-function sum(a) {
-    return function sumInner(b) {
-        return a + b;
-    }
-}
-
 
 /*
 
