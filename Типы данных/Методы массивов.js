@@ -88,6 +88,18 @@ function filterRangeInPlace(arr, a, b) {
     console.log(arr);
 }
 
+// Вариант с чистой функцией
+
+let arr = [5, 3, 8, 1];
+
+function cleanFilter(arr, minValue, maxValue) {
+    return arr.slice().filter(item => item >= minValue && item <= maxValue)
+}
+
+console.log(
+    cleanFilter(arr, 1, 4)
+)
+console.log(arr);
 
 
 // Сортировать в порядке по убыванию
