@@ -92,12 +92,11 @@ function filterRangeInPlace(arr, a, b) {
 
 // Сортировать в порядке по убыванию
 
-const sortFunc = (a, b) => a > b ? -1 : a === b ? 0 : 1 ;
+const sortFunc = (a, b) => b - a ;
 
 let arr = [ 1, 2, 15, -5, 7, 14, -100, 28, 16 ];
 
 arr.sort(sortFunc);
-
 console.log(arr);
 
 /*
