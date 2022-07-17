@@ -18,20 +18,24 @@ loadJson('no-such-user.json') // (3)
     .catch(alert); // Error: 404
 
 */
+let result;
 
-async function loadJson_(url) {
-    let fetchResponse = fetch(url);
-    if (fetchResponse.status == 200) {
-        return fetchResponse.json();
-    } else {
-        throw new Error(fetchResponse.status);
+async function loadJson(url) {
+    try {
+        let response = await fetch(url);
+        if (response.status === 200) {
+            result = await response.json();
+            console.log(result);
+        } else {
+            throw new Error(`${response.status}`);
+        }
+    } catch(error) {
+        alert(error)
     }
 }
 
-loadJson('no-such-user.json')
-    .catch(alert);
-
-
+loadJson('https://jsonplaceholder.typicode.com/posts/1');
+loadJson('no-such-user.json');
 /*
 
 Ниже пример из раздела Цепочка промисов, перепишите его, используя async/await вместо .then/catch.
