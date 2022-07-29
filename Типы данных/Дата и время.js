@@ -27,6 +27,6 @@ let date = new Date(2012, 0, 3);
 alert( getWeekDay(date) );
 
 function getWeekDay(date) {
-    let daysArray = ['ПН', 'ВТ','СР','ЧТ','ПТ','СБ','ВС'];
-    return daysArray.splice(date.getDay() - 1 , 1);
+    let daysArray = ['ВС','ПН', 'ВТ','СР','ЧТ','ПТ','СБ'];
+    return daysArray[date.getDay()];
 }
