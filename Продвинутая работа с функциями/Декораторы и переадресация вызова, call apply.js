@@ -28,8 +28,8 @@ let f1000 = delay(f, 1500);
 let f1500 = delay(f, 5000);
 
 function delay(func, timeout) {
-    return function(log) {
-        setTimeout(() => func(log), timeout);
+    return function(...args) {
+        setTimeout(() => func(...args), timeout);
     }
 
 }

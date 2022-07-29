@@ -65,7 +65,7 @@ function pow(x, n) {
       !isNumber(x) ||
       !isNumber(n)
        ) {
-      return
+      return NaN;
     }
 
     if (n === 1) {

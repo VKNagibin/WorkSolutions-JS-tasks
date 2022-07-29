@@ -21,12 +21,8 @@ function Calculator() {
         this.num1 = prompt("Введите первое число");
         this.num2 = prompt("Введите второе число");
     }
-    this.sum = () => {
-        return +this.num1 + +this.num2;
-    }
-    this.mul = () => {
-        return this.num1 * this.num2;
-    }
+    this.sum = () => +this.num1 + +this.num2;
+    this.mul = () => this.num1 * this.num2;
 }
 
 let calculator = new Calculator();
@@ -59,17 +55,27 @@ alert( "Mul=" + calculator.mul() );
 
 */
 
-function Accumulator(startingValue = 0) {
-    this.value = startingValue;
-    this.read = () => {
-        this.value += +prompt("Введите число для сложения");
-    }
-}
-
 let accumulator = new Accumulator(600);
 
 accumulator.read();
 accumulator.read();
 
-alert(accumulator.value)
+alert(accumulator.value);
 
+function Accumulator(startingValue = 0) {
+    this.value = startingValue;
+    this.read = () => {
+        this.value += promptChecker( +prompt("Введите число для сложения") );
+    }
+}
+
+function promptChecker(message) {
+    if (isNumber(message)) {
+        return message
+    }
+    return 0;
+}
+
+function isNumber(num) {
+    return isFinite(-num) && String(num).trim() !== ''
+}

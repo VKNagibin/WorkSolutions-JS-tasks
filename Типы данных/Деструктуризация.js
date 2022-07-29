@@ -59,9 +59,43 @@ let salaries = {
     "John": 100,
     "Pete": 300,
     "Mary": 250,
+    "Bob": 2000,
+    "Lucy": 2000,
+    "Mark": -2345,
 };
 
-Object.entries(salaries);
+function expensiveEmployee(obj) {
+    if (JSON.stringify(obj) === "{}") {
+        return null;
+    }
 
+    let result = ["name", 0];
+
+    for (let [key, value] of Object.entries(obj)) {
+        result = result[1] > value ? result : [key, value];
+    }
+    return result[0]
+}
+
+expensiveEmployee(salaries);
+
+// Решение с использованием Array.prototype.sort()
+
+// const expensiveEmployee = (employeeList) => {
+//     if (JSON.stringify(employeeList) === "{}") {
+//         return null;
+//     }
+//
+//     let result = Object.entries(salaries);
+//
+//     result.sort(sortedArray);
+//     return result[0][0]
+// }
+//
+// function sortedArray(a, b) {
+//     return b[1] - a[1]
+// }
+//
+// expensiveEmployee(salaries);
 
 

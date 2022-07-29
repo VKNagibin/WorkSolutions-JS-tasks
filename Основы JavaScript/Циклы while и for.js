@@ -87,12 +87,12 @@ function simpleNumbers(n) {
                 break;
             }
 
-            j === i - 1 ?  simpleNumbers.push(i) : null;
+            if (j === i - 1) simpleNumbers.push(i);
         }
     }
 
 
-    return simpleNumbers.join(', ') + '.' ;
+    return simpleNumbers;
 }
 
 function isNumber(num) {

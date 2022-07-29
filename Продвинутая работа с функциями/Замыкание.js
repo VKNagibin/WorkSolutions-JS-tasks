@@ -12,15 +12,9 @@
 
 */
 
+const sum = firstProp => secondProp => firstProp + secondProp;
 
 sum(100)(250);
-
-function sum(a) {
-    return function sumInner(b) {
-        return a + b;
-    }
-}
-
 
 /*
 
@@ -48,27 +42,18 @@ function sum(a) {
 
 let arr = [1, 2, 3, 4, 5, 6, 7];
 
-alert( arr.filter(inBetween(5, 7)) );
-alert( arr.filter(inArray([1, 2, 10])) );
+const inBetween = (min, max) => item => item >= min && item <= max
 
-function inBetween(min, max) {
-    return function(item) {
-        if (item >= min && item <= max) {
+const inArray = array => item => {
+    for (let i of array) {
+        if (item === i) {
             return true;
         }
-        return false
     }
+    return false;
 }
 
-function inArray(array) {
-    return function inArrayInner(item) {
-        for (let i of array) {
-            if (item === i) {
-                return true;
-            }
-        }
-        return false;
-    };
-}
+alert( arr.filter(inBetween(5, 7)) );
+alert( arr.filter(inArray([1, 2, 10])) );
 
 

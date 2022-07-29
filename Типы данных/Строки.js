@@ -9,19 +9,14 @@
 
 */
 
-checkSpam('buy ViAgRA now');
-checkSpam('free xxxxx');
-checkSpam("innocent rabbit");
+spamChecking('buy ViAgRA now');
+spamChecking('free xxxxx');
+spamChecking("innocent rabbit");
 
-function checkSpam(checkingString) {
-    let regVia = checkingString.match(/viagra/i);
-    let regXXX = checkingString.match(/xxx/i);
-
-    if (regVia || regXXX) {
-        return true;
-    }
-
-    return false
+function spamChecking(checkingString) {
+    const spamArray = [/viagra/i, /xxx/i];
+    let isSpam = spamArray.findIndex(item => checkingString.match(item));
+    return isSpam !== -1 ? true : false;
 }
 
 

@@ -53,3 +53,8 @@ function sumCicle(num) {
     return sum;
 }
 
+//Арифметическая прогрессия
+
+const progressionFunc = num => num * (num + 1) / 2;
+console.log( progressionFunc(9) );
+

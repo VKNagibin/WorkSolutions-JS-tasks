@@ -25,11 +25,12 @@ delete user.name;
  */
 
 function isEmpty(obj) {
-    let keys = 0;
+    let flag = true;
     for (let key in obj) {
-        keys++;
+        flag = false;
+        break;
     }
-    return !!keys;
+    return flag;
 }
 
 let schedule = {};
@@ -58,15 +59,11 @@ let salaries = {
     Pete: 130
 }
 
-function sum(obj) {
-    let total = 0;
-    for (let key in obj) {
-        total += obj[key];
-    }
-    return total;
-}
+const sumClean = (obj) => Object.values(obj).reduce((acc, val) => acc + val);
 
-sum(salaries);
+// 
+
+sumClean(salaries);
 
 
 /*
@@ -97,18 +94,18 @@ sum(salaries);
 
  */
 
-function multiplyNumeric(obj) {
-    for (let key in obj) {
-        if (typeof obj[key] === 'number') {
-            obj[key] = obj[key] * 2;
-        }
-    }
-}
+const multiplyNumeric = (obj) => console.log(Object.entries(obj).filter(item => isNumber(item[1])).forEach(item => obj[item[0]] *= 2));
+
+const isNumber = (num) => !isNaN(num) && parseInt(num) && String(num).trim() !== ''
 
 let menu = {
     width: 2000,
     height: 3300,
-    title: "My menu"
+    title: "My menu",
+    weight: 500000,
+    h: 0,
+    gt: NaN,
+    space: "   ",
 };
 
 multiplyNumeric(menu);

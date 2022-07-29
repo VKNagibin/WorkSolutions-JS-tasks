@@ -52,19 +52,14 @@ function camelize(str) {
 
 */
 
+
+const filterRange = ((arr, minValue, maxValue) => arr.filter(item => item >= minValue && item <= maxValue));
+
 let arr = [5, 3, 8, 1, 9, 2, 2, 7, 16];
 
-filterRange(arr, 1, 4);
-
-function filterRange(arr, a, b) {
-    let filteredArray;
-
-    filteredArray = arr.filter(item => {
-        return item >= a && item <= b;
-    })
-
-    return filteredArray;
-}
+let filtered = filterRange(arr, 1, 4);
+alert( filtered ); 
+alert( arr );
 
 /*
 
@@ -93,24 +88,28 @@ function filterRangeInPlace(arr, a, b) {
     console.log(arr);
 }
 
+// Вариант с чистой функцией
+
+let arr = [5, 3, 8, 1];
+
+function cleanFilter(arr, minValue, maxValue) {
+    return arr.slice().filter(item => item >= minValue && item <= maxValue)
+}
+
+console.log(
+    cleanFilter(arr, 1, 4)
+)
+console.log(arr);
 
 
 // Сортировать в порядке по убыванию
 
-
-
-function sortFunc(a, b) {
-    if (a > b) return -1;
-    if (a == b) return 0;
-    if (a < b) return 1;
-}
+const sortFunc = (a, b) => b - a ;
 
 let arr = [ 1, 2, 15, -5, 7, 14, -100, 28, 16 ];
 
 arr.sort(sortFunc);
-
 console.log(arr);
-
 
 /*
 
@@ -131,13 +130,9 @@ console.log(arr);
 
 let arr = ["HTML", "JavaScript", "CSS"];
 
+const copySorted = (array) => array.slice().sort();
+
 let sorted = copySorted(arr);
-
-function copySorted(array_) {
-    let newArray = [...array_];
-
-    return newArray.sort();
-}
 
 console.log(`sorted: ${sorted}` );
 console.log(`source array: ${arr}`)
