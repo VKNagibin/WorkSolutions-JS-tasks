@@ -59,17 +59,17 @@ let salaries = {
     "John": 100,
     "Pete": 300,
     "Mary": 250,
-    "Bob": 2000,
+    "Bob": 2020,
     "Lucy": 2000,
     "Mark": -2345,
 };
 
 function expensiveEmployee(obj) {
-    if (JSON.stringify(obj) === "{}") {
+    if (Object.keys(obj).length === 0) {
         return null;
     }
 
-    let result = ["name", 0];
+    let result = [null, 0];
 
     for (let [key, value] of Object.entries(obj)) {
         result = result[1] > value ? result : [key, value];
