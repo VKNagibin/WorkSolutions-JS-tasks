@@ -79,27 +79,13 @@ alert( arr );
 
 */
 
-let arr = [5, 3, 8, 1];
+ const arr = [5, 3, 8, 1];
 
-filterRangeInPlace(arr, 1, 4)
+  function filterRangeInPlace(arr, a, b) {
+    return arr.splice(0, arr.length, ...arr.filter(item => (item >= a && item <= b)));
+  }
 
-function filterRangeInPlace(arr, a, b) {
-    arr = arr.filter(item => item >= a && item <= b);
-    console.log(arr);
-}
-
-// Вариант с чистой функцией
-
-let arr = [5, 3, 8, 1];
-
-function cleanFilter(arr, minValue, maxValue) {
-    return arr.slice().filter(item => item >= minValue && item <= maxValue)
-}
-
-console.log(
-    cleanFilter(arr, 1, 4)
-)
-console.log(arr);
+  filterRangeInPlace(arr, 1, 4);
 
 
 // Сортировать в порядке по убыванию
